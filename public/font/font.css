@@ -1,0 +1,30 @@
+
+@font-face{
+    font-family: 'arialbd';
+    src: url('./arialbd.ttf');
+}
+
+@font-face{
+    font-family: 'dinoffcpro-medium';
+    src: url('./dinoffcpro-medium.ttf');
+}
+
+@font-face{
+    font-family: 'grundig din-medium';
+    src: url('./grundig din-medium.ttf');
+}
+
+@font-face{
+    font-family: 'HelveticaNeueLTStd-Bd_2';
+    src: url('./HelveticaNeueLTStd-Bd_2.otf');
+}
+
+@font-face{
+    font-family: 'HelveticaNeueLTStd-Roman';
+    src: url('./HelveticaNeueLTStd-Roman.otf');
+}
+
+@font-face{
+    font-family: 'MyriadPro-Bold_0';
+    src: url('./MyriadPro-Bold_0.otf');
+}
