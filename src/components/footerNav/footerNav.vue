@@ -26,7 +26,7 @@
           <span class="icon-num">
           </span>
         </p>
-        <bubble :num="shopCartNum" v-if="shopCartNum > 0"></bubble>
+        <bubble :num="shopCartNum" v-if="shopCartNum > 0" :bg="bg"></bubble>
       </div>
 
       <div class="footerNav-item" @click.stop.prevent="toMyself" :class="{active:(routerName === 'myself')}">
@@ -53,7 +53,8 @@ export default {
   data () {
     return {
       routerName: '',
-      shopCartNum: 10
+      shopCartNum: 10,
+      bg: 'type-2'
     }
   },
   created () {
