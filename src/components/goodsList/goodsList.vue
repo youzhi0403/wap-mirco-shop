@@ -50,28 +50,36 @@ export default {
   data () {
     return {
       goodsNum: 0,
-      goodsList: []
+      goodsList: [],
+      goodsListPrimary: []
     }
   },
   created () {
     this.goodsNum = goodsList.data.length
     this.goodsList = goodsList.data
-
     for (let j = 0, len = this.goodsNum; j < len; j++) {
       if (this.goodsList[j].image === '') {
         this.goodsList[j].image = 'http://image.360hwj.com/goods/931509/3448fcd6-390d-48ce-964b-c03774d3593b!400x400.jpg'
       }
+      this.goodsList[j].diseaseIds = this.goodsList[j].diseaseId.split(',')
     }
+    this.goodsListPrimary = this.goodsList
   },
   watch: {
     propOfDiseaseId: function (val, oldVal) {
-      if (val !== '') {
-        this.goodsList.filter(function (element) {
-          if (element.diseaseId === val) {
-            return element
+      let tempArr = []
+      for (let j = 0; j < this.goodsListPrimary.length; j++) {
+        for (let i = 0; i < this.goodsListPrimary[j].diseaseIds.length; i++) {
+          if (val === this.goodsListPrimary[j].diseaseIds[i]) {
+            tempArr.push(this.goodsListPrimary[j])
+            break
           }
-        })
+        }
       }
+      this.goodsList = tempArr
+      let a = '123'
+      let b = '123'
+      console.log(a === b)
     },
     propOfPriceSort: function (val, oldVal) {
       if (val === 'desc') {

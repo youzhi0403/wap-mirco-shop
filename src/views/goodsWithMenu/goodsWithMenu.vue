@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     selectDepartment: function (object) {
-      this.diseaseId = object.diseaseId
+      this.diseaseId = object.id
     },
     priceSort: function (status) {
       this.priceSortStatus = status
