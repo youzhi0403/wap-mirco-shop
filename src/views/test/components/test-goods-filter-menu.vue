@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GoodsFilterMenu from '../../components/goodsFilterMenu/goodsFilterMenu'
+import GoodsFilterMenu from '../../../components/goodsFilterMenu/goodsFilterMenu'
 export default {
   name: 'test-goods-filter-menu',
   components: { GoodsFilterMenu },

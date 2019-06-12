@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import SelfHelpPopup from '../../components/selfHelpPopup/selfHelpPopup'
+import SelfHelpPopup from '../../../components/selfHelpPopup/selfHelpPopup'
 export default {
   name: 'test-self-help-popup',
   components: { SelfHelpPopup },

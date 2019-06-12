@@ -5,9 +5,12 @@ import classification from '../views/classification/classification'
 import member from '../views/member/member'
 import myself from '../views/myself/myself'
 import shopCart from '../views/shopCart/shopCart'
-import testGoodsFilter from '../views/test/test-goods-filter'
-import testSelfHelpPopup from '../views/test/test-self-help-popup'
-import testGoodsFilterMenu from '../views/test/test-goods-filter-menu'
+import testGoodsFilter from '../views/test/components/test-goods-filter'
+import testSelfHelpPopup from '../views/test/components/test-self-help-popup'
+import testGoodsFilterMenu from '../views/test/components/test-goods-filter-menu'
+import testGoodsList from '../views/test/components/test-goods-list'
+import testGoods from '../views/test/views/test-goods'
+import testGoodsWithMenu from '../views/test/views/test-goods-with-menu'
 
 const routes = [
   { path: '/', redirect: 'home' },
@@ -19,7 +22,10 @@ const routes = [
 
   { name: 'testGoodsFilter', path: '/testGoodsFilter', component: testGoodsFilter, props: true },
   { name: 'testSelfHelpPopup', path: '/testSelfHelpPopup', component: testSelfHelpPopup, props: true },
-  { name: 'testGoodsFilterMenu', path: '/testGoodsFilterMenu', component: testGoodsFilterMenu, props: true }
+  { name: 'testGoodsFilterMenu', path: '/testGoodsFilterMenu', component: testGoodsFilterMenu, props: true },
+  { name: 'testGoodsList', path: '/testGoodsList', component: testGoodsList, props: true },
+  { name: 'testGoods', path: '/testGoods', component: testGoods, props: true },
+  { name: 'testGoodsWithMenu', path: '/testGoodsWithMenu', component: testGoodsWithMenu, props: true }
 ]
 
 Vue.use(VueRouter)
