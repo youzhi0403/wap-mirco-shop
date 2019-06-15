@@ -11,6 +11,8 @@ import testGoodsFilterMenu from '../views/test/components/test-goods-filter-menu
 import testGoodsList from '../views/test/components/test-goods-list'
 import testGoods from '../views/test/views/test-goods'
 import testGoodsWithMenu from '../views/test/views/test-goods-with-menu'
+import testSubmit from '../views/test/views/test-submit'
+import testAddressAddPopup from '../views/test/components/test-address-add-popup'
 
 const routes = [
   { path: '/', redirect: 'home' },
@@ -25,7 +27,9 @@ const routes = [
   { name: 'testGoodsFilterMenu', path: '/testGoodsFilterMenu', component: testGoodsFilterMenu, props: true },
   { name: 'testGoodsList', path: '/testGoodsList', component: testGoodsList, props: true },
   { name: 'testGoods', path: '/testGoods', component: testGoods, props: true },
-  { name: 'testGoodsWithMenu', path: '/testGoodsWithMenu', component: testGoodsWithMenu, props: true }
+  { name: 'testGoodsWithMenu', path: '/testGoodsWithMenu', component: testGoodsWithMenu, props: true },
+  { name: 'testSubmit', path: '/testSubmit', component: testSubmit, props: true },
+  { name: 'testAddressAddPopup', path: '/testAddressAddPopup', component: testAddressAddPopup, props: true }
 ]
 
 Vue.use(VueRouter)
