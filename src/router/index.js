@@ -13,6 +13,7 @@ import testGoods from '../views/test/views/test-goods'
 import testGoodsWithMenu from '../views/test/views/test-goods-with-menu'
 import testSubmit from '../views/test/views/test-submit'
 import testAddressAddPopup from '../views/test/components/test-address-add-popup'
+import goodDetail from '../views/goodDetail/goodDetail'
 
 const routes = [
   { path: '/', redirect: 'home' },
@@ -21,6 +22,7 @@ const routes = [
   { name: 'member', path: '/member', component: member, props: true },
   { name: 'myself', path: '/myself', component: myself, props: true },
   { name: 'shopCart', path: '/shopCart', component: shopCart, props: true },
+  { name: 'goodDetail', path: '/goodDetail', component: goodDetail, props: true },
 
   { name: 'testGoodsFilter', path: '/testGoodsFilter', component: testGoodsFilter, props: true },
   { name: 'testSelfHelpPopup', path: '/testSelfHelpPopup', component: testSelfHelpPopup, props: true },
