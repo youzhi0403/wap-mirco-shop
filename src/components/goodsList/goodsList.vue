@@ -114,6 +114,7 @@ export default {
   padding-top: 3rem;
   max-width: 640px;
   font-family: 'PingFang Medium_1';
+  line-height: 20px;
   ul
     width: 100%;
     .good-item

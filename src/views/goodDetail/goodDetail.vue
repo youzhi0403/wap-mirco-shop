@@ -115,14 +115,253 @@
           </div>
         </div>
       </div>
+
+      <!--第四部分-->
+      <div class="goodDetail-partFour">
+        <div class="partFour-title">
+          组合推荐
+          <i class="icon-title"></i>
+        </div>
+        <div class="partFour-description">
+          <!-- 用tab选项卡来实现内容 -->
+          <div class="description-title">
+            <span v-for="(item,index) in propOfGood.combination" :key="index" :class="{highLight:index==combinationIndex}" @click.stop.prevent="combinationChange(index)">{{item.name}}</span>
+          </div>
+
+          <div class="description-wrapper">
+            <div class="description-content">
+              <p>
+                {{currentCombination.content}}
+              </p>
+              <p class="tips">(此点评仅供参考，如有其他不适请咨询医师或药师)</p>
+            </div>
+            <div class="partFour-goods">
+              <cube-scroll
+                ref="scroll"
+                direction="horizontal"
+                class="goods-items-scroll"
+              >
+                <div class="goods-items">
+                  <div class="goods-item" v-for="(item,index) in currentCombination.goods" :key="index">
+                    <div class="goods-item-image">
+                      <img :src="item.img" />
+                      <i class="icon-add"></i>
+                    </div>
+                    <div class="goods-item-info">
+                      <div class="goods-item-name">{{item.name}}</div>
+                      <div class="goods-item-price">￥<span class="stress-price">{{item.price}}</span></div>
+                    </div>
+                  </div>
+                </div>
+              </cube-scroll>
+
+            </div>
+            <div class="partFour-shopCart">
+              <p>合计<span style="margin-left: 0.5rem; color: #ff1e1e;fone-size:1.03rem;" class="stress-price">￥982.00</span></p>
+              <p>立省<span class="stress-price">3.10</span>元,原价<span style="text-decoration: line-through" class="stress-price">4800.0</span>元</p>
+              <div class="shopCart-button randomJoinSelector">
+                加入购物车
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!--第五部分-->
+      <div class="goodDetail-partFive">
+        <div class="partFive-shopcart-title">
+          <i class="icon-logo" style="margin-left: 0.4rem;vertical-align: middle;"></i>
+          <i class="icon-fanxingou" style="margin-left: 0.4rem;vertical-align: middle;"></i>
+          <span>全程保障</span>
+          <span>购物无忧</span>
+        </div>
+        <div class="partFive-shopcart-content">
+          <span><i class="icon-tick"></i>正品保证</span>
+          <span><i class="icon-tick"></i>实体连锁</span>
+          <span><i class="icon-tick"></i>药师服务</span>
+          <span><i class="icon-tick"></i>隐私发货</span>
+          <span><i class="icon-tick"></i>极度审核</span>
+          <span><i class="icon-tick"></i>自提</span>
+        </div>
+        <i class="icon-more" id="randomFanxingouSelector"></i>
+      </div>
+
+      <!--第六部分-->
+      <div class="goodDetail-partSix">
+        <div class="partSix-title">
+          药品监管部门提示
+          <i class="icon-title"></i>
+        </div>
+        <div class="partSix-tips">
+          如发现本店有任何直接或变相销售处方行为，请保留证据拨打12331举报，举报查实给予奖励！
+        </div>
+        <div class="partSix-content">
+          <p><span>1</span>处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明书并在医师指导下使用。</p>
+          <p><span>2</span>处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明书并在医师指导下使用。</p>
+          <p><span>3</span>处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明书并在医师指导下使用。</p>
+          <p><span>4</span>处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明书并在医师指导下使用。</p>
+        </div>
+      </div>
+
+      <!--第七部分 继续拖动查看商品详情-->
+      <div class="goodDetail-partSeven">
+        <span></span>
+        <span class="text">继续拖动，查看商品详情</span>
+        <span></span>
+      </div>
+
+      <!--第八部分-->
+      <div class="goodDetail-partEight">
+        <div class="partEight-title">
+          商品信息
+          <i class="icon-title"></i>
+        </div>
+        <div class="partEight-table">
+          <div class="table-row">
+            <div class="row-left">商品编号</div>
+            <div class="row-right">2040242</div>
+          </div>
+          <div class="table-row">
+            <div class="row-left">商品类型</div>
+            <div class="row-right">OTC药甲</div>
+          </div>
+          <div class="table-row">
+            <div class="row-left">功能主治</div>
+            <div class="row-right">补肺益气，止咳平喘。用于肺气不足，气短喘咳，咳声低弱，干咳痰粘，咽干舌燥。</div>
+          </div>
+          <div class="table-row">
+            <div class="row-left">生产厂家</div>
+            <div class="row-right">山东圣海保健品有限公司</div>
+          </div>
+          <div class="table-row">
+            <div class="row-left">批准问号</div>
+            <div class="row-right">
+              国食健字G20100789<br>
+              <a>国家食药局查询</a>
+            </div>
+          </div>
+          <div class="table-row">
+            <div class="row-left">产品规格</div>
+            <div class="row-right">0.45g*30s</div>
+          </div>
+          <div class="table-row">
+            <div class="row-left">用法用量</div>
+            <div class="row-right">口服，一次1丸，一日2次。</div>
+          </div>
+          <div class="table-row">
+            <div class="row-left">通用名称</div>
+            <div class="row-right">补肺丸</div>
+          </div>
+          <div class="table-row">
+            <div class="row-left">不良反应</div>
+            <div class="row-right">尚不明确。</div>
+          </div>
+          <div class="table-row">
+            <div class="row-left">禁忌</div>
+            <div class="row-right">外感咳嗽者忌服。</div>
+          </div>
+        </div>
+      </div>
+
+      <!--第九部分-->
+      <div class="goodDetail-partNine">
+        <div class="partNine-title">
+          图文详情
+          <i class="icon-title"></i>
+        </div>
+        <div class="partNine-content">
+          <img :src="item" v-for="(item,index) in propOfGood.imgs" :key="index">
+        </div>
+      </div>
+
+      <!--第十部分-->
+      <div class="goodDetail-partTen">
+        <div class="partTen-title">
+          价格说明
+        </div>
+        <div class="partTen-content">
+          <div class="partTen-item">
+            <div class="item-title">
+              划线价格
+              <i class="icon-orange-point"></i>
+            </div>
+            <p class="item-content">
+              处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明书并在医师指导下使用。
+            </p>
+          </div>
+          <div class="partTen-item">
+            <div class="item-title">
+              划线价格
+              <i class="icon-orange-point"></i>
+            </div>
+            <p class="item-content">
+              处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明书并在医师指导下使用。
+            </p>
+          </div>
+          <div class="partTen-item">
+            <div class="item-title">
+              异常问题
+              <i class="icon-orange-point"></i>
+            </div>
+            <p class="item-content">
+              处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明书并在医师指导下使用。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!--第十一部分-->
+      <div class="goodDetail-partEleven">
+        <div class="partEleven-title">
+          售后服务
+        </div>
+        <div class="partEleven-content">
+          <div class="partEleven-item">
+            <div class="item-title">
+              退货政策
+              <i class="icon-orange-point"></i>
+            </div>
+            <p class="item-content">
+              1.处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明书并在医师指导下使用。
+              <br>
+              2.处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明
+              <br>
+              3.处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药请仔细阅读说明
+              <br>
+              &nbsp;&nbsp;(1)处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药
+              <br>
+              &nbsp;&nbsp;(2)处方药请凭处方药购买，本广告仅供医学专业人士阅读。使用处方药
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!--药师推荐-->
+      <div class="shopcart-goods-recommend">
+        <div class="recommend-title">
+          <i class="icon-recommend"></i>
+          <span>药师推荐</span>
+          <i class="icon-recommend"></i>
+        </div>
+        <goods-list></goods-list>
+      </div>
+
     </div>
 </template>
 
 <script>
+import GoodsList from '../../components/goodsList/goodsList'
 export default {
   name: 'goodDetail',
+  components: { GoodsList },
   data () {
     return {
+      /* 商品当前组合的index */
+      combinationIndex: 0,
+      /* 当前的商品组合 */
+      currentCombination: {}
     }
   },
   props: {
@@ -133,8 +372,8 @@ export default {
           seckill: true,
           imgs: [
             'http://image.360hwj.com/goods/931509/3448fcd6-390d-48ce-964b-c03774d3593b!600x600.jpg',
-            'http://image.360hwj.com/goods/931509/3448fcd6-390d-48ce-964b-c03774d3593b!600x600.jpg',
-            'http://image.360hwj.com/goods/931509/3448fcd6-390d-48ce-964b-c03774d3593b!600x600.jpg'
+            'http://image.360hwj.com/goods/931509/c6ca9822-d8cf-4bbe-9947-d80b1982742c!source.hwj.jpg',
+            'http://image.360hwj.com/goods/931509/7c8d6b45-f3ed-4f25-bd7c-685e1f51e19e!source.hwj.jpg'
           ],
           fullName: '珍贵全 天然维生素E软胶囊 需要补充维生素E的成人 0.45g*30s',
           secondKillGood: true,
@@ -301,6 +540,16 @@ export default {
         }
       }
     }
+  },
+  methods: {
+    combinationChange (index) {
+      this.combinationIndex = index
+      this.currentCombination = this.propOfGood.combination[index]
+    }
+  },
+  created () {
+    this.combinationIndex = 0
+    this.currentCombination = this.propOfGood.combination[0]
   }
 }
 </script>
@@ -495,7 +744,6 @@ export default {
       &:not(:last-child)
         .item-content
           border-bottom: 1px solid #e6e6e6;
-
   .goodDetail-partThree
     margin-top: 0.69rem;
     background: #fff;
@@ -543,7 +791,6 @@ export default {
           margin-right: 1.1rem;
           vertical-align: middle;
           padding: 0.1rem 0.2rem;
-
         .icon-more
           background: url(./more_icon@2x.png) center no-repeat;
           background-size: contain;
@@ -553,7 +800,6 @@ export default {
           position: absolute;
           right: 0.69rem;
           top: 0;
-
         .coupon-bg
           background: #FF5900;
           height: 1.51rem;
@@ -583,7 +829,6 @@ export default {
             left: 70%;
             background: #fff;
             transform: rotate(45deg);
-
         .integral
           margin-top: 0;
         .icon-coupon-section
@@ -608,4 +853,383 @@ export default {
       &:not(:last-child)
         .item-content
           border-bottom: 1px solid #e6e6e6;
+  .goodDetail-partFour
+    margin-top: 0.69rem;
+    background: #fff;
+    padding: 0 0.58rem 0.8rem 1.03rem;
+    font-family: 'PingFang Medium_1';
+    .stress-price
+      font-family: 'grundig din-medium';
+    .partFour-title
+      font-size: 1.1rem;
+      line-height: 1.1rem;
+      color: #1a1a1a;
+      padding-top: 1.38rem;
+      position: relative;
+      font-family: 'PingFang Bold_1';
+      .icon-title
+        width: 1.1rem;
+        height: 1.1rem;
+        background: url(./orange_icon@2x.png) left no-repeat;
+        background-size: contain;
+        display: block;
+        position: absolute;
+        left: -1.03rem;
+        top: 1.38rem;
+    .partFour-description
+      .description-title
+        margin-top: 1.17rem;
+        font-size: 0;
+        span
+          margin-right: 1.38rem;
+          font-size: 0.96rem;
+          color: #cecece;
+          border: 1px solid #cecece;
+          border-radius: 1px;
+          box-sizing: border-box;
+          padding: 0.1rem;
+          &.highLight
+            color: #ff5900;
+            border: 0;
+            background: #FFEEE5;
+            font-family: 'PingFang Bold_1';
+
+      .description-wrapper
+        .description-content
+          font-size: 0.82rem;
+          color: #1a1a1a;
+          margin-top: 1.17rem;
+          p
+            line-height: 1.4rem;
+          .tips
+            font-size: 0.75rem;
+            color: #ff5900;
+            margin-top: 0.75rem;
+
+        .partFour-goods
+          margin-top: 1.72rem;
+          margin-bottom: 0.5rem;
+          .goods-items-scroll
+            .cube-scroll-content
+              display: inline-block;
+            .goods-items
+              white-space: nowrap;
+              .goods-item
+                display: inline-block;
+                width: 6.9rem;
+                margin-right: 30px;
+                .goods-item-image
+                  width: 100%;
+                  position: relative;
+                  img
+                    width: 100%;
+                    height: 100%;
+                  .icon-add
+                    width: 1rem;
+                    height: 1rem;
+                    display: block;
+                    position: absolute;
+                    background: url(./add@2x.png) center no-repeat;
+                    background-size: contain;
+                    top: 3rem;
+                    right: -1.7rem;
+                .goods-item-info
+                  margin-top: 1.1rem;
+                  .goods-item-name
+                    font-size: 0.82rem;
+                    color: #1a1a1a;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    line-height: 20px;
+                  .goods-item-price
+                    font-size: 0.82rem;
+                    color: #1a1a1a;
+                    text-align: left;
+                    line-break: 20px;
+                    .stress-price
+                      font-family: 'grundig din-medium'
+                &:last-child
+                  margin-right: 0px;
+                  .icon-add
+                    display: none;
+        .partFour-shopCart
+          font-size: 0.96rem;
+          color: #1a1a1a;
+          padding-top: 1.2rem;
+          padding-bottom: 0.69rem;
+          border-top: 1px solid #f6f6f6;
+          line-height: 1.72rem;
+          position: relative;
+          p
+            margin: 0;
+          .shopCart-button
+            font-size: 1.1rem;
+            color: #fff;
+            padding: 0.4rem 0.6rem;
+            background-color: #ff5900;
+            border-radius: 3px;
+            position: absolute;
+            right: 0.69rem;
+            bottom: 1.2rem;
+  .goodDetail-partFive
+    margin-top: 0.69rem;
+    background: #fff;
+    padding: 0 0.58rem 0.8rem 1.03rem;
+    position: relative;
+    line-height: 20px;
+    .partFive-shopcart-title
+      padding-top: 1.03rem;
+      font-family: 'PingFang Bold_1';
+      .icon-logo
+        background: url(./shield@2x.png) center no-repeat;
+        background-size: contain;
+        width: 1rem;
+        height: 1rem;
+        display: inline-block;
+      span
+        font-size: 0.96rem;
+        color: #ff5900;
+    .partFive-shopcart-content
+      width: 100%;
+      font-size: 0.82rem;
+      padding-left: 0.4rem;
+      font-family: 'PingFang Medium_1';
+      span
+        width: 22%;
+        display: inline-block;
+        margin-top: 0.4rem;
+        color: #666666;
+        font-size: 0.82rem;
+        .icon-tick
+          background: url(./gou@2x.png) center no-repeat;
+          background-size: contain;
+          width: 1rem;
+          height: 1rem;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 0.4rem;
+
+    .icon-more
+      background: url(./more_icon@2x.png) center no-repeat;
+      background-size: contain;
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
+      vertical-align: middle;
+      position: absolute;
+      right: 1.3rem;
+      top: 1.2rem;
+  .goodDetail-partSix
+    margin-top: 0.6rem;
+    background: #fff;
+    padding: 0 0.58rem 1.41rem 1.03rem;
+    font-family: 'PingFang Medium_1';
+    .partSix-title
+      padding-top: 1.34rem;
+      font-size: 1.1rem;
+      line-height: 1.1rem;
+      color: #1a1a1a;
+      position: relative;
+      font-family: 'PingFang Bold_1';
+      .icon-title
+        width: 1.1rem;
+        height: 1.1rem;
+        background: url(./orange_icon@2x.png) left no-repeat;
+        background-size: contain;
+        display: block;
+        position: absolute;
+        left: -1.03rem;
+        top: 1.38rem;
+    .partSix-tips
+      margin-top: 1.13rem;
+      font-size: 0.79rem;
+      line-height: 1.2rem;
+      color: #ff5900;
+      font-family: 'PingFang Bold_1';
+    .partSix-content
+      margin-top: 1.03rem;
+      font-size: 0.79rem;
+      color: #666666;
+      line-height: 20px;
+      span
+        display: inline-block;
+        border: 1px solid #666666;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        width: 0.6rem;
+        height: 0.6rem;
+        text-align: center;
+        line-height: 0.6rem;
+        padding: 0.1rem;
+
+  .goodDetail-partSeven
+    height: 3.10rem;
+    line-height: 3.10rem;
+    text-align: center;
+    font-size: 0.86rem;
+    color: #666666;
+    font-family: 'PingFang Medium_1';
+    span
+      &:nth-child(odd)
+        width: 20%;
+        border-top: 1px solid #666666;
+        display: inline-block;
+        vertical-align: middle;
+        opacity: 0.2;
+    .text
+      margin: 0 0.93rem;
+  .goodDetail-partEight
+    padding: 1.34rem 0.58rem 1.41rem 1.03rem;
+    background: #fff;
+    font-family: 'PingFang Medium_1';
+    .partEight-title
+      font-size: 1.1rem;
+      line-height: 1.1rem;
+      color: #1a1a1a;
+      padding-bottom: 1.17rem;
+      position: relative;
+      font-family: 'PingFang Bold_1';
+      .icon-title
+        width: 1.1rem;
+        height: 1.1rem;
+        background: url(./orange_icon@2x.png) left no-repeat;
+        background-size: contain;
+        display: block;
+        position: absolute;
+        left: -1.03rem;
+        top: 0;
+    .partEight-table
+      border: 1px solid #e7e7e7;
+      line-height: 20px;
+      .table-row
+        display: flex;
+        .row-left
+          font-size: 0.75rem;
+          color: #666666;
+          width: 5rem;
+          padding: 0.69rem;
+          box-sizing: border-box;
+          border-right: 1px solid #e7e7e7;
+        .row-right
+          flex: 1;
+          font-size: 0.75rem;
+          color: #1a1a1a;
+          padding: 0.79rem 1.17rem;
+          a
+            color: #025dbe;
+        &:not(:last-child)
+          border-bottom: 1px solid #e7e7e7;
+  .goodDetail-partNine
+    margin-top: 0.69rem;
+    background: #fff;
+    padding: 1.34rem 0.58rem 1.41rem 1.03rem;
+    .partNine-title
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      padding-bottom: 1.17rem;
+      border-bottom: 1px solid #e6e6e6;
+      position: relative;
+      font-family: 'PingFang Bold_1';
+      line-height: 1.1rem;
+      .icon-title
+        width: 1.1rem;
+        height: 1.1rem;
+        background: url(./orange_icon@2x.png) left no-repeat;
+        background-size: contain;
+        display: block;
+        position: absolute;
+        left: -1.03rem;
+        top: 0rem;
+    .partNine-content
+      img
+        width: 100%;
+        vertical-align: middle;
+  .goodDetail-partTen
+    margin-top: 0.69rem;
+    background: #fff;
+    padding: 1.34rem 0.58rem 1.41rem 1.03rem;
+    font-family: 'PingFang Medium_1';
+    .partTen-title
+      font-size: 1.1rem;
+      color: #666666;
+      padding-bottom: 1.17rem;
+    .partTen-content
+      line-height:20px;
+      .partTen-item
+        margin-bottom: 0.69rem;
+        padding-left: 0.65rem;
+        .item-title
+          font-size: 0.96rem;
+          color: #1a1a1a;
+          position: relative;
+          font-family: 'PingFang Bold_1';
+          font-weight: bold;
+          .icon-orange-point
+            width: 0.96rem;
+            height: 0.96rem;
+            display: block;
+            background: url(./orange_point@2x.png) left no-repeat;
+            position: absolute;
+            top: 0.15rem;
+            left: -0.8rem;
+            vertical-align: middle;
+        .item-content
+          font-size: 0.96rem;
+          color: #666666;
+  .goodDetail-partEleven
+    margin-top: 0.69rem;
+    background: #fff;
+    padding: 1.34rem 0.58rem 1.41rem 1.03rem;
+    font-family: 'PingFang Medium_1';
+    line-height: 20px;
+    .partEleven-title
+      font-size: 1.1rem;
+      color: #666666;
+      padding-bottom: 1.17rem;
+    .partEleven-content
+      .partEleven-item
+        margin-bottom: 0.69rem;
+        padding-left: 0.65rem;
+        .item-title
+          font-size: 0.96rem;
+          color: #1a1a1a;
+          position: relative;
+          font-family: 'PingFang Bold_1';
+          font-weight: bold;
+          .icon-orange-point
+            width: 0.96rem;
+            height: 0.96rem;
+            display: block;
+            background: url(./orange_point@2x.png) left no-repeat;
+            position: absolute;
+            top: 0.15rem;
+            left: -0.8rem;
+            vertical-align: middle;
+        .item-content
+          font-size: 0.96rem;
+          color: #666666;
+  .shopcart-goods-recommend
+    width: 100%;
+    background-color: #f6f6f6;
+    padding-bottom: 4.5rem;
+    font-family: 'PingFang Medium_1';
+    .recommend-title
+      margin: 0 auto;
+      text-align: center;
+      padding: 1.72rem 0.69rem;
+      font-family: 'PingFang Bold_1';
+      .icon-recommend
+        background: url(./recommend_icon@2x.png) center no-repeat;
+        background-size: contain;
+        width: 0.5rem;
+        height: 0.5rem;
+        display: inline-block;
+      span
+        font-size: 1.2rem;
+        color: black;
+        display: inline-block;
+        margin: 0 0.69rem;
+    .goodsList
+      padding-top: 0;
 </style>
