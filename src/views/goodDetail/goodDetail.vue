@@ -348,6 +348,46 @@
         <goods-list></goods-list>
       </div>
 
+      <!--商品详情底部-加入购物车车-->
+      <div class="goodDetail-footer" v-show="propOfGood.footerStatus == 'shopCart'">
+        <div class="footer-left">
+          <a class="service"><i class="icon-service"></i><p>客服</p><span class="num">14</span></a>
+          <a class="collect"><i class="icon-collect active"></i><p>收藏</p></a>
+          <a class="shopcart"><i class="icon-shopcart"></i><p>购物车</p></a>
+        </div>
+        <div class="footer-right">
+          <a class="randomJoinSelector">加入购物车</a>
+        </div>
+      </div>
+
+      <!--商品详情底部-加入需求单-->
+      <div class="goodDetail-footer no-inventory" v-show="propOfGood.footerStatus == 'no-inventory'">
+        <div class="footer-left">
+          <a class="service"><i class="icon-service"></i><p>客服</p><span class="num">14</span></a>
+          <a class="collect"><i class="icon-collect active"></i><p>收藏</p></a>
+          <a class="shopcart"><i class="icon-demand"></i><p>需求单</p></a>
+        </div>
+        <div class="footer-right">
+          <a>加入需求单</a>
+        </div>
+      </div>
+
+      <!--商品详情底部-已售空-->
+      <div class="goodDetail-footer sell-out" v-show="propOfGood.footerStatus == 'sell-out'">
+        <div class="footer-left">
+          <a class="service"><i class="icon-service"></i><p>客服</p><span class="num">14</span></a>
+          <a class="collect"><i class="icon-collect active"></i><p>收藏</p></a>
+          <a class="shopcart"><i class="icon-demand"></i><p>需求单</p><span class="num">4</span></a>
+        </div>
+        <div class="footer-right">
+          <a>查看药师推荐</a>
+        </div>
+      </div>
+      <!--售空提示-->
+      <div class="goodDetail-sell-out-recommend" v-show="propOfGood.footerStatus == 'sell-out'">
+        商品已售空，非常抱歉!
+      </div>
+
     </div>
 </template>
 
@@ -536,7 +576,8 @@ export default {
               oldPrice: 59.00
             }
           ],
-          isEmpty: true
+          /* 有三种状态：shopCart-加入购物车，no-inventory-加入需求单，sell-out-已售空 */
+          footerStatus: 'shopCart'
         }
       }
     }
@@ -1232,4 +1273,98 @@ export default {
         margin: 0 0.69rem;
     .goodsList
       padding-top: 0;
+  .goodDetail-footer
+    width: 100%;
+    height: 3.9rem;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    z-index: 10;
+    max-width: 640px;
+    font-family: 'PingFang Bold_1';
+    box-shadow: 0 8px 30px grey;
+    .footer-left
+      padding-top: 0.35rem;
+      width: 50%;
+      float: left;
+      display: flex;
+      box-sizing: border-box;
+      a
+        flex: 1;
+        font-size: 0.69rem;
+        color: #333333;
+        align-self: center;
+        text-align: center;
+        position: relative;
+        i
+          width: 1.7rem;
+          height: 1.7rem;
+          display: inline-block;
+          vertical-align: middle;
+        .icon-service
+          background: url(./custom_serv@2x.png) center no-repeat;
+          background-size: contain;
+        .icon-collect
+          background: url(./star_gray@2x.png) center no-repeat;
+          background-size: contain;
+          &.active
+            background: url(./star_red@2x.png) center no-repeat;
+            background-size: contain;
+        .icon-demand
+          background: url(./Tab_listing@2x.png) center no-repeat;
+          background-size: contain;
+        .icon-shopcart
+          background: url(./tab_car@2x.png) center no-repeat;
+          background-size: contain;
+        p
+          line-height: 20px;
+        .num
+          display: inline-block;
+          height: 1rem;
+          line-height: 1rem;
+          border-radius: 1rem;
+          background: #FF5722;
+          color: #fff;
+          text-align: center;
+          font-size: 0.8rem;
+          position: absolute;
+          left: 2.2rem;
+          top: -0.2rem;
+          padding: 0 0.3rem;
+    .footer-right
+      width: 50%;
+      float: right;
+      padding: 0.55rem 1.03rem;
+      box-sizing: border-box;
+      a
+        width: 9.66rem;
+        height: 2.79rem;
+        line-height: 2.79rem;
+        text-align: center;
+        background: linear-gradient(to right, #FD9B31 , #FD5900);
+        border-radius: 5px;
+        font-size: 0.96rem;
+        color: #ffffff;
+        display: inline-block;
+        float: right;
+        letter-spacing: 2px;
+    &.sell-out
+      .footer-right
+        a
+          background: linear-gradient(to right, #FF9E33 , #FEC139);
+  .goodDetail-sell-out-recommend
+    position: fixed;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    height: 2.41rem;
+    z-index: 10;
+    bottom: 3.9rem;
+    background-color: #191919;
+    opacity: 0.8;
+    line-height: 2.41rem;
+    text-align: center;
+    font-size: 0.89rem;
+    color: #ffffff;
+    font-family: 'PingFang Medium_1';
 </style>
