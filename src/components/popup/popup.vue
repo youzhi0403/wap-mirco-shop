@@ -1,12 +1,12 @@
 <template>
     <div class="popup" :class="{'visible':visible}">
-      <div class="popup-overlay">
+      <div class="popup-overlay" @click.stop.prevent="hide">
       </div>
       <div class="popup-wrapper">
         <div class="popup-title">
           <slot name="title"></slot>
           <div class="icon-close-container">
-            <i class="icon-close"></i>
+            <i class="icon-close" @click.stop.prevent="hide"></i>
           </div>
         </div>
         <div class="popup-content">
@@ -19,9 +19,28 @@
 <script>
 export default {
   name: 'popup',
+  props: {
+    propOfVisible: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    }
+  },
   data () {
     return {
       visible: true
+    }
+  },
+  created () {
+    this.visible = this.propOfVisible
+  },
+  methods: {
+    hide: function () {
+      this.visible = false
+    },
+    show: function () {
+      this.visible = true
     }
   }
 }
@@ -77,6 +96,13 @@ export default {
           height: 0.89rem;
           display: block;
           margin: 0 auto;
+    .popup-content
+      width: 100%;
+      height: 85%;
+      position: absolute;
+      bottom: 0;
+      background: #f6f6f6;
+      overflow: scroll;
   &.visible
     .popup-overlay
       display:block;

@@ -89,7 +89,7 @@
           <div class="item-content">
             <p><span class="sign-text">立减</span>首单随即立减</p>
             <p><span class="sign-text">免邮</span>全场满58免运费</p>
-            <i class="icon-more" id="randomSalesSelector"></i>
+            <i class="icon-more" @click.stop.prevent="showPromotionPopup"></i>
           </div>
         </div>
         <div class="partThree-item">
@@ -388,14 +388,18 @@
         商品已售空，非常抱歉!
       </div>
 
+      <!--促销popup-->
+      <promotion-popup :propOfPromotions="propOfGood.promotions" ref="promotionPopup"></promotion-popup>
+
     </div>
 </template>
 
 <script>
 import GoodsList from '../../components/goodsList/goodsList'
+import PromotionPopup from '../../components/promotionPopup/promotionPopup'
 export default {
   name: 'goodDetail',
-  components: { GoodsList },
+  components: { PromotionPopup, GoodsList },
   data () {
     return {
       /* 商品当前组合的index */
@@ -586,6 +590,9 @@ export default {
     combinationChange (index) {
       this.combinationIndex = index
       this.currentCombination = this.propOfGood.combination[index]
+    },
+    showPromotionPopup () {
+      this.$refs['promotionPopup'].showPopup()
     }
   },
   created () {
