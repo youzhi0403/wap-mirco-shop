@@ -80,6 +80,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      font-size: 1.2rem;
       .icon-close-container
         width: 2.89rem;
         height: 2.89rem;

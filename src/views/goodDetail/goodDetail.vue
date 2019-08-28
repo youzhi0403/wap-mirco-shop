@@ -108,7 +108,7 @@
               </span>
             </p>
             <p class="integral"><span class="sign-text">积分</span>可获得35积分</p>
-            <div class="icon-coupon-section" id="randomCouponSelector">
+            <div class="icon-coupon-section" @click.stop.prevent="showCouponPopup">
               <span>领券</span>
               <i class="icon-arrow"></i>
             </div>
@@ -391,15 +391,19 @@
       <!--促销popup-->
       <promotion-popup :propOfPromotions="propOfGood.promotions" ref="promotionPopup"></promotion-popup>
 
+      <!--优惠券popup-->
+      <coupon-popup ref="couponPopup"></coupon-popup>
+
     </div>
 </template>
 
 <script>
 import GoodsList from '../../components/goodsList/goodsList'
 import PromotionPopup from '../../components/promotionPopup/promotionPopup'
+import CouponPopup from '../../components/couponPopup/couponPopup'
 export default {
   name: 'goodDetail',
-  components: { PromotionPopup, GoodsList },
+  components: { CouponPopup, PromotionPopup, GoodsList },
   data () {
     return {
       /* 商品当前组合的index */
@@ -593,6 +597,9 @@ export default {
     },
     showPromotionPopup () {
       this.$refs['promotionPopup'].showPopup()
+    },
+    showCouponPopup () {
+      this.$refs['couponPopup'].showPopup()
     }
   },
   created () {
