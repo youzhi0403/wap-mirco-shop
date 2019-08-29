@@ -1,6 +1,6 @@
 <template>
-    <div class="joinPopup">
-      <div class="join-popup-overlay">
+    <div class="joinPopup" :class="{'visible':visible}">
+      <div class="join-popup-overlay" @click.stop.prevent="hideJoinPopup">
       </div>
       <div class="join-popup-wrapper">
         <div class="join-popup-title">
@@ -13,7 +13,7 @@
             <p class="good-price">￥<span class="stress-price">72</span>.00</p>
             <p class="good-number">商品编码：12345678</p>
           </div>
-          <div class="icon-close-container" id="join_popup_close">
+          <div class="icon-close-container"  @click.stop.prevent="hideJoinPopup">
             <i class="icon-close"></i>
           </div>
 
@@ -62,7 +62,32 @@
 
 <script>
 export default {
-  name: 'joinPopup'
+  name: 'joinPopup',
+  props: {
+    propOfVisible: {
+      type: Boolean,
+      default: function () {
+        return false
+      }
+    }
+  },
+  data () {
+    return {
+      visible: false
+    }
+  },
+  created () {
+    this.visible = this.propOfVisible
+  },
+  methods: {
+    showJoinPopup: function () {
+      this.visible = true
+    },
+    hideJoinPopup: function () {
+      this.visible = false
+    }
+  }
+
 }
 </script>
 
@@ -283,7 +308,7 @@ export default {
         text-align: center;
   &.visible
     .join-popup-overlay
-      display: none;
+      display: block;
     .join-popup-wrapper
       transform: translate3d(0,0,0);
 </style>

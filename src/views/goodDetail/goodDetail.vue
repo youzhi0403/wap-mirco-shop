@@ -159,7 +159,7 @@
             <div class="partFour-shopCart">
               <p>合计<span style="margin-left: 0.5rem; color: #ff1e1e;fone-size:1.03rem;" class="stress-price">￥982.00</span></p>
               <p>立省<span class="stress-price">3.10</span>元,原价<span style="text-decoration: line-through" class="stress-price">4800.0</span>元</p>
-              <div class="shopCart-button randomJoinSelector">
+              <div class="shopCart-button randomJoinSelector" @click.stop.prevent="showJoinPopup">
                 加入购物车
               </div>
             </div>
@@ -185,7 +185,7 @@
           <span><i class="icon-tick"></i>极度审核</span>
           <span><i class="icon-tick"></i>自提</span>
         </div>
-        <i class="icon-more" id="randomFanxingouSelector"></i>
+        <i class="icon-more" @click.stop.prevent="showFanxingouPopup"></i>
       </div>
 
       <!--第六部分-->
@@ -356,7 +356,7 @@
           <a class="shopcart"><i class="icon-shopcart"></i><p>购物车</p></a>
         </div>
         <div class="footer-right">
-          <a class="randomJoinSelector">加入购物车</a>
+          <a class="randomJoinSelector" @click.stop.prevent="showJoinPopup">加入购物车</a>
         </div>
       </div>
 
@@ -394,6 +394,14 @@
       <!--优惠券popup-->
       <coupon-popup ref="couponPopup"></coupon-popup>
 
+      <!--加入购物车popup-->
+      <join-popup :prop-of-visible="false" ref="joinPopup"></join-popup>
+
+      <!--放心购popup-->
+      <fanxingou-popup ref="fanxingouPopup"></fanxingou-popup>
+
+      <!--更多功能悬浮框-->
+      <float-buttons></float-buttons>
     </div>
 </template>
 
@@ -401,9 +409,12 @@
 import GoodsList from '../../components/goodsList/goodsList'
 import PromotionPopup from '../../components/promotionPopup/promotionPopup'
 import CouponPopup from '../../components/couponPopup/couponPopup'
+import JoinPopup from '../../components/joinPopup/joinPopup'
+import FanxingouPopup from '../../components/fanxingouPopup/fanxingouPopup'
+import FloatButtons from "../../components/floatButtons/floatButtons";
 export default {
   name: 'goodDetail',
-  components: { CouponPopup, PromotionPopup, GoodsList },
+  components: {FloatButtons, FanxingouPopup, JoinPopup, CouponPopup, PromotionPopup, GoodsList },
   data () {
     return {
       /* 商品当前组合的index */
@@ -600,6 +611,12 @@ export default {
     },
     showCouponPopup () {
       this.$refs['couponPopup'].showPopup()
+    },
+    showJoinPopup () {
+      this.$refs['joinPopup'].showJoinPopup()
+    },
+    showFanxingouPopup () {
+      this.$refs['fanxingouPopup'].showFanxingouPopup()
     }
   },
   created () {
