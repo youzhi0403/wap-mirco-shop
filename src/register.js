@@ -1,3 +1,6 @@
-/* 自定义的组件如果要使用createAPI的方式创建，采用这种方式 */
+/* cube-ui的createAPI */
 import { createAPI } from 'cube-ui'
 import Vue from 'vue'
+import recordPopup from './components/recordPopup/recordPopup'
+
+createAPI(Vue, recordPopup, [], true)

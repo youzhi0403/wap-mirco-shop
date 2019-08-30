@@ -1,15 +1,33 @@
 <template>
+  <div class="floatButtons-container">
     <div class="floatButtons">
-      <div class="float-button">
+      <div class="float-button" @click.stop.prevent="showFunctionPopup">
         <i class="icon-more"></i>
       </div>
       <i class="icon-stick"></i>
+
     </div>
+    <!--functionPopup-->
+    <function-popup ref="functionPopup" ></function-popup>
+  </div>
+
 </template>
 
 <script>
+import FunctionPopup from '../functionPopup/functionPopup'
 export default {
-  name: 'floatButtons'
+  name: 'floatButtons',
+  components: { FunctionPopup },
+  methods: {
+    showFunctionPopup: function () {
+      this.$refs['functionPopup'].showFuntionPopup()
+    }
+  },
+  data () {
+    return {
+      functionPopupStatus: false
+    }
+  }
 }
 </script>
 

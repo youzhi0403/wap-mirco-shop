@@ -49,7 +49,7 @@
               <p>购物车</p>
             </div>
           </a>
-          <a class="function-item" id="randomRecordSelector">
+          <a class="function-item" @click.stop.prevent="showRecordPopup">
             <div class="item-container">
               <i class="icon-record"></i>
               <p>浏览记录</p>
@@ -63,31 +63,32 @@
 <script>
 export default {
   name: 'functionPopup',
-  props: {
-    propOfVisible: {
-      type: Boolean,
-      default: function () {
-        return false
-      }
-    }
-  },
   data () {
     return {
       visible: false
     }
   },
   methods: {
-    showFunctionPopup: function () {
+    showFuntionPopup: function () {
+      console.log('12')
       this.visible = true
     },
     hideFunctionPopup: function () {
       this.visible = false
+    },
+    showRecordPopup () {
+      const instance = this.$createRecordPopup({
+      })
+      instance.$on('closeRecordPopup', () => {
+        instance.remove()
+      })
+      let _this = this
+      setTimeout(function () {
+        _this.hideFunctionPopup()
+        instance.visible = true
+      }, 0)
     }
-  },
-  created () {
-    this.visible = this.propOfVisible
   }
-
 }
 </script>
 
@@ -129,7 +130,7 @@ export default {
         position: absolute;
         display: inline-block;
         left: 1.5rem;
-        line-height: 0.96rem;d
+        line-height: 0.96rem;
       .icon-close-container
         width: 2.41rem;
         height: 2.41rem;
@@ -216,7 +217,7 @@ export default {
             display: block;
   &.visible
     .function-popup-overlay
-      display: none;
+      display: block;
     .function-popup-wrapper
       transform: translate3d(0,0,0);
 </style>

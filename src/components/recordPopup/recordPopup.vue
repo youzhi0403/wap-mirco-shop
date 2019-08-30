@@ -1,5 +1,5 @@
 <template>
-    <div class="recordPopup">
+    <div class="recordPopup" :class="{'visible':visible}">
       <div class="record-popup-overlay" @click.stop.prevent="hideRecordPopup">
       </div>
       <div class="record-popup-wrapper">
@@ -80,7 +80,11 @@ export default {
       this.visible = true
     },
     hideRecordPopup: function () {
+      let _this = this
       this.visible = false
+      setTimeout(function () {
+        _this.$emit('close')
+      }, 400)
     }
   },
   created () {
@@ -100,6 +104,8 @@ export default {
     top: 0;
     background: #000000;
     opacity: 0.65;
+    transform: translate3d(-50%, 0, 0);
+    left: 50%;
     display: none;
   .record-popup-wrapper
     transition-property: transform;
@@ -155,6 +161,7 @@ export default {
         .record-item-text
           font-size: 0.69rem;
           color: #1a1a1a;
+          line-height: 20px;
           .name
             padding-top: 0.3rem;
             overflow: hidden;
