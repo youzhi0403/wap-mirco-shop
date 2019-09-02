@@ -35,7 +35,7 @@ html, body {
     word-wrap:break-word;word-break:break-all;/*单词断句*/
 }
 .page {
-    position:relative;
+    /*position:relative;*/
     max-width:640px;
     margin:0 auto;
     height: 100%;

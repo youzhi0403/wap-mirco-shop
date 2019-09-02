@@ -1,6 +1,10 @@
 <template>
     <div class="shopCart">
       购物车待开发
+      <!--购物车商品-->
+      <div class="shopcart-goods-container">
+
+      </div>
       <footer-nav :prop-of-router-name="navName"></footer-nav>
     </div>
 </template>

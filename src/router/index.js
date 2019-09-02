@@ -14,6 +14,9 @@ import testGoodsWithMenu from '../views/test/views/test-goods-with-menu'
 import testSubmit from '../views/test/views/test-submit'
 import testAddressAddPopup from '../views/test/components/test-address-add-popup'
 import goodDetail from '../views/goodDetail/goodDetail'
+import testSwipe from '../views/test/views/test-swipe'
+import goodsWithMenu from '../views/goodsWithMenu/goodsWithMenu'
+import goods from '../views/goods/goods'
 
 const routes = [
   { path: '/', redirect: 'home' },
@@ -23,6 +26,8 @@ const routes = [
   { name: 'myself', path: '/myself', component: myself, props: true },
   { name: 'shopCart', path: '/shopCart', component: shopCart, props: true },
   { name: 'goodDetail', path: '/goodDetail', component: goodDetail, props: true },
+  { name: 'goodsWithMenu', path: '/goodsWithMenu', component: goodsWithMenu, props: true },
+  { name: 'goods', path: '/goods', component: goods, props: true },
 
   { name: 'testGoodsFilter', path: '/testGoodsFilter', component: testGoodsFilter, props: true },
   { name: 'testSelfHelpPopup', path: '/testSelfHelpPopup', component: testSelfHelpPopup, props: true },
@@ -31,7 +36,8 @@ const routes = [
   { name: 'testGoods', path: '/testGoods', component: testGoods, props: true },
   { name: 'testGoodsWithMenu', path: '/testGoodsWithMenu', component: testGoodsWithMenu, props: true },
   { name: 'testSubmit', path: '/testSubmit', component: testSubmit, props: true },
-  { name: 'testAddressAddPopup', path: '/testAddressAddPopup', component: testAddressAddPopup, props: true }
+  { name: 'testAddressAddPopup', path: '/testAddressAddPopup', component: testAddressAddPopup, props: true },
+  { name: 'testSwipe', path: '/testSwipe', component: testSwipe, props: true }
 ]
 
 Vue.use(VueRouter)

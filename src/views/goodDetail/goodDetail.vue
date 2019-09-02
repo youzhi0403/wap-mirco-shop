@@ -411,10 +411,10 @@ import PromotionPopup from '../../components/promotionPopup/promotionPopup'
 import CouponPopup from '../../components/couponPopup/couponPopup'
 import JoinPopup from '../../components/joinPopup/joinPopup'
 import FanxingouPopup from '../../components/fanxingouPopup/fanxingouPopup'
-import FloatButtons from "../../components/floatButtons/floatButtons";
+import FloatButtons from '../../components/floatButtons/floatButtons'
 export default {
   name: 'goodDetail',
-  components: {FloatButtons, FanxingouPopup, JoinPopup, CouponPopup, PromotionPopup, GoodsList },
+  components: { FloatButtons, FanxingouPopup, JoinPopup, CouponPopup, PromotionPopup, GoodsList },
   data () {
     return {
       /* 商品当前组合的index */
