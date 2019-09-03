@@ -17,6 +17,7 @@ import goodDetail from '../views/goodDetail/goodDetail'
 import testSwipe from '../views/test/views/test-swipe'
 import goodsWithMenu from '../views/goodsWithMenu/goodsWithMenu'
 import goods from '../views/goods/goods'
+import search from '../views/search/search'
 
 const routes = [
   { path: '/', redirect: 'home' },
@@ -28,6 +29,7 @@ const routes = [
   { name: 'goodDetail', path: '/goodDetail', component: goodDetail, props: true },
   { name: 'goodsWithMenu', path: '/goodsWithMenu', component: goodsWithMenu, props: true },
   { name: 'goods', path: '/goods', component: goods, props: true },
+  { name: 'search', path: '/search', component: search, props: true },
 
   { name: 'testGoodsFilter', path: '/testGoodsFilter', component: testGoodsFilter, props: true },
   { name: 'testSelfHelpPopup', path: '/testSelfHelpPopup', component: testSelfHelpPopup, props: true },
