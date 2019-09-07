@@ -1,7 +1,7 @@
 <template>
     <div class="submit">
       <div class="submit-container">
-        <div class="submit-address">
+        <div class="submit-address" @click.stop.prevent="showAddressPopup">
           <div class="submit-address-left">
             <i class="icon-position"></i>
           </div>
@@ -53,13 +53,13 @@
           </div>
         </div>
         <div class="submit-way">
-          <div class="submit-way-item" id="randomCouponSelector">
+          <div class="submit-way-item" @click.stop.prevent="showAllowancePopup">
             <span class="item-left">购物津贴</span><span class="item-right">10元购物津贴券</span><i class="icon-more"></i>
           </div>
           <div class="submit-way-item" id="randomDiscountSelector">
             <span class="item-left">商家优惠</span><span class="item-right">20元购物津贴券</span><i class="icon-more"></i>
           </div>
-          <div class="submit-way-item" id="randomDeliverySelector">
+          <div class="submit-way-item" @click.stop.prevent="showDeliveryPopup">
             <span class="item-left">配送方式</span><span class="item-right">5元邮费券</span><i class="icon-more"></i>
           </div>
           <div class="submit-way-item submit-way-message">
@@ -96,17 +96,37 @@
           <a class="operator-button">提交订单</a>
         </div>
       </div>
+
+      <address-popup ref="addressPopup"></address-popup>
+
+      <!--购物津贴popup-->
+      <allowance-popup ref="allowancePopup"></allowance-popup>
+      <!--配送方式popup-->
+      <delivery-popup ref="deliveryPopup"></delivery-popup>
     </div>
 </template>
 
 <script>
+import AddressPopup from '../../components/addressPopup/addressPopup'
+import AllowancePopup from '../../components/allowancePopup/allowancePopup'
+import DeliveryPopup from '../../components/deliveryPopup/deliveryPopup'
 export default {
-  name: 'submit'
+  name: 'submit',
+  components: { DeliveryPopup, AllowancePopup, AddressPopup },
+  methods: {
+    showAllowancePopup: function () {
+      this.$refs['allowancePopup'].showAllowancePopup()
+    },
+    showDeliveryPopup: function () {
+      this.$refs['deliveryPopup'].showDeliveryPopup()
+    }
+  }
 }
 </script>
 
 <style lang="stylus">
 .submit
+  line-height: 20px;
   .submit-container
     width: 100%;
     padding-bottom: 4.2rem;

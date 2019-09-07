@@ -2,7 +2,7 @@
     <div class="addressPopup" :class="{'visible':visible}">
       <div class="address-popup-wrapper">
         <div class="address-container">
-          <div class="address-button-add">
+          <div class="address-button-add" @click.stop.prevent="showAddressAddPopup">
             <i class="i-add">+</i>
             <a>添加一个新地址</a>
           </div>
@@ -93,18 +93,33 @@
 
         </div>
       </div>
-      <div class="cancel-button">
+      <div class="cancel-button" @click.stop.prevent="hideAddressAddPopup">
         取消
       </div>
+
+      <address-add-popup ref="addressAddPopup"></address-add-popup>
     </div>
 </template>
 
 <script>
+import AddressAddPopup from '../addressAddPopup/addressAddPopup'
 export default {
   name: 'addressPopup',
+  components: { AddressAddPopup },
   data () {
     return {
-      visible: true
+      visible: false
+    }
+  },
+  methods: {
+    showAddressPopup: function () {
+      this.visible = true
+    },
+    hideAddressAddPopup: function () {
+      this.visible = false
+    },
+    showAddressAddPopup: function () {
+      this.$refs['addressAddPopup'].showAddressAddPopup()
     }
   }
 }
@@ -121,7 +136,7 @@ export default {
     position: fixed;
     max-width: 640px;
     bottom: 3.27rem;
-    z-index: 200;
+    z-index: 98;
     background: #f6f6f6;
     overflow: auto;
     .address-container
@@ -145,6 +160,7 @@ export default {
           text-align: left;
           box-sizing: border-box;
           padding-left: 0.4rem;
+          color: #ff5900;
     .address-item-container
       .address-item
         margin-top: 0.69rem;
@@ -192,7 +208,7 @@ export default {
     border-top: 0.17rem solid #8d8d8d;
     width: 100%;
     background: #fff;
-    z-index: 200;
+    z-index: 98;
     transform: translate3d(0,100%,0);
     transition-property: transform;
     transition-duration: 0.3s;

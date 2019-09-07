@@ -11,10 +11,11 @@
           <div class="pay-show-point"></div>
           <div class="pay-show-point"></div>
           <div class="pay-show-point"></div>
-          <input type="password" style="display: none" maxlength="6">
+          <input type="password" style="display: none" maxlength="6" v-model="pw">
         </div>
         <div class="pay-button">确定</div>
       </div>
+
     </div>
 </template>
 
@@ -23,7 +24,8 @@ export default {
   name: 'payPopup',
   data () {
     return {
-      visible: true
+      visible: true,
+      pw: ''
     }
   }
 }

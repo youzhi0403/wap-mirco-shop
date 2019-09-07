@@ -18,6 +18,8 @@ import testSwipe from '../views/test/views/test-swipe'
 import goodsWithMenu from '../views/goodsWithMenu/goodsWithMenu'
 import goods from '../views/goods/goods'
 import search from '../views/search/search'
+import submit from '../views/submit/submit'
+import login from '../views/login/login'
 
 const routes = [
   { path: '/', redirect: 'home' },
@@ -30,6 +32,8 @@ const routes = [
   { name: 'goodsWithMenu', path: '/goodsWithMenu', component: goodsWithMenu, props: true },
   { name: 'goods', path: '/goods', component: goods, props: true },
   { name: 'search', path: '/search', component: search, props: true },
+  { name: 'submit', path: '/submit', component: submit, props: true },
+  { name: 'login', path: '/login', component: login, props: true },
 
   { name: 'testGoodsFilter', path: '/testGoodsFilter', component: testGoodsFilter, props: true },
   { name: 'testSelfHelpPopup', path: '/testSelfHelpPopup', component: testSelfHelpPopup, props: true },

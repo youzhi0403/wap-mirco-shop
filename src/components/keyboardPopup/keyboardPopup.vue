@@ -7,7 +7,7 @@
           <span class="text keyboard-hide">完成</span>
         </div>
         <div class="keyboard-content">
-          <div class="keyboard-item hover">
+          <div class="keyboard-item hover" @click.stop.prevent="">
             1
           </div>
           <div class="keyboard-item hover">

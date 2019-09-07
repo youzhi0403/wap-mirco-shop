@@ -1,11 +1,11 @@
 <template>
   <div class="payWayPopup" :class="{'visible': visible}">
-    <div class="pay-way-popup-overlay">
+    <div class="pay-way-popup-overlay" @click.stop.prevent="hidePayWayPopup">
     </div>
     <div class="pay-way-popup-wrapper">
       <div class="pay-way-popup-title">
         选择支付方式
-        <div class="icon-close-container">
+        <div class="icon-close-container" @click.stop.prevent="hidePayWayPopup">
           <i class="icon-close"></i>
         </div>
       </div>
@@ -32,6 +32,9 @@
         </div>
       </div>
     </div>
+
+    <!--微信支付popup-->
+    <popup></popup>
   </div>
 </template>
 
@@ -41,6 +44,14 @@ export default {
   data () {
     return {
       visible: true
+    }
+  },
+  methods: {
+    showPayWayPopup: function () {
+      this.visible = true
+    },
+    hidePayWayPopup: function () {
+      this.visible = false
     }
   }
 }

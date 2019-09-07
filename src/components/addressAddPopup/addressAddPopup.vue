@@ -16,7 +16,7 @@
           </div>
           <div class="address-add-item">
             <div class="title">所在地区</div>
-            <div class="item-input-container">
+            <div class="item-input-container" @click.stop.prevent="showAddressPicker">
               <input placeholder="请选择地址" type="text" v-model="region" readonly>
             </div>
           </div>
@@ -36,23 +36,56 @@
         <div class="address-add-button">
           确定
         </div>
-        <div class="address-cancel-button">
+        <div class="address-cancel-button" @click.stop.prevent="hideAddressAddPopup">
           取消
         </div>
       </div>
     </div>
 </template>
 <script>
-import area from '../../data/area/area'
+import { provinceList, cityList, areaList } from './area'
+
+const addressData = provinceList
+addressData.forEach(province => {
+  province.children = cityList[province.value]
+  province.children.forEach(city => {
+    city.children = areaList[city.value]
+  })
+})
 export default {
   name: 'addressAddPopup',
   data () {
     return {
-      visible: true,
+      visible: false,
       name: '',
       telephone: '',
       region: '',
       address: ''
+    }
+  },
+  mounted () {
+    this.addressPicker = this.$createCascadePicker({
+      title: 'City Picker',
+      data: addressData,
+      onSelect: this.selectHandle,
+      onCancel: this.cancelHandle
+    })
+  },
+  methods: {
+    showAddressAddPopup: function () {
+      this.visible = true
+    },
+    hideAddressAddPopup: function () {
+      this.visible = false
+    },
+    showAddressPicker: function () {
+      console.log('123')
+      this.addressPicker.show()
+    },
+    selectHandle (selectedVal, selectedIndex, selectedText) {
+      this.region = selectedText
+    },
+    cancelHandle () {
     }
   }
 }
@@ -70,7 +103,7 @@ export default {
     max-width: 640px;
     top: 0;
     bottom: 0;
-    z-index: 201;
+    z-index: 99;
     background: #f6f6f6;
     .address-add-container
       background: #fff;
